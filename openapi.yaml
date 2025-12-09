@@ -1,0 +1,73 @@
+openapi: 3.0.4
+info:
+  title: Age Calculator
+  description: Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/agecalculator:
+    get:
+      summary: Calculate Age from Date of Birth
+      description: Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+      operationId: agecalculator
+      parameters:
+      - name: dob
+        in: query
+        schema:
+          type: string
+        required: true
+        description: 'The date of birth to calculate the age from (format: YYYY-MM-DD)'
+        example: 1990-08-02
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  dob: 1990-01-01
+                  age_years: 35
+                  age_months: 421
+                  age_weeks: 1833
+                  age_days: 12834
+                  age_words:
+                    years: thirty-five
+                    ordinal: thirty-fifth
+                    full: thirty-five years old
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
