@@ -1,32 +1,34 @@
 openapi: 3.0.4
 info:
   title: Age Calculator
-  description: Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+  description: >-
+    Age Calculator is a simple tool for calculating age from the date of birth.
+    It returns the calculated age based on the date of birth provided.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/agecalculator:
     get:
       summary: Calculate Age from Date of Birth
-      description: Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+      description: Calculate age based on the date of birth provided
       operationId: agecalculator
       parameters:
-      - name: dob
-        in: query
-        schema:
-          type: string
-        required: true
-        description: 'The date of birth to calculate the age from (format: YYYY-MM-DD)'
-        example: 1990-08-02
+        - name: dob
+          in: query
+          schema:
+            type: string
+          required: true
+          description: 'The date of birth to calculate the age from (format: YYYY-MM-DD)'
+          example: '1990-08-02'
       responses:
         '200':
           description: Successful Response
@@ -42,27 +44,41 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
-                  dob: 1990-01-01
-                  age_years: 35
-                  age_months: 421
-                  age_weeks: 1833
-                  age_days: 12834
+                  dob: '1990-01-01'
+                  age_breakdown:
+                    years: 35
+                    months: 431
+                    weeks: 1876
+                    days: 13133
+                    hours: 315208
+                    minutes: 18912499
+                    seconds: 1134749976
                   age_words:
                     years: thirty-five
                     ordinal: thirty-fifth
                     full: thirty-five years old
+                    locale: en-US
+                  timezone: America/Chicago
+                  locale: en-US
+                  next_birthday:
+                    months: 0
+                    weeks: 2
+                    days: 15
+                    hours: 367
+                    minutes: 22060
+                    seconds: 1323623
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
 components:
   securitySchemes:
     api_key:
@@ -70,4 +86,4 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
