@@ -12,7 +12,6 @@ namespace APIVerve.API.AgeCalculator
     {
         /// <summary>
         /// The date of birth to calculate the age from (format: YYYY-MM-DD)
-        /// Example: 1990-08-02
         /// </summary>
         [JsonProperty("dob")]
         public string Dob { get; set; }
