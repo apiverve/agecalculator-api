@@ -10,20 +10,14 @@ if os.path.exists(requirements_file):
 
 setup(
     name='apiverve_agecalculator',
-    version='1.1.12',
+    version='1.1.13',
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
     description='Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.',
     author='APIVerve',
     author_email='hello@apiverve.com',
-    url='https://apiverve.com',
-    project_urls={
-        'Homepage': 'https://apiverve.com',
-        'Documentation': 'https://docs.apiverve.com/ref/agecalculator',
-        'Source': 'https://github.com/apiverve/agecalculator-api',
-        'Bug Tracker': 'https://github.com/apiverve/agecalculator-api/issues'
-    },
+    url='https://apiverve.com/marketplace/agecalculator?utm_source=pypi&utm_medium=homepage',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',
