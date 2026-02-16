@@ -225,8 +225,9 @@ from apiverve_agecalculator.apiClient import AgecalculatorAPIClient
 
 api = AgecalculatorAPIClient("[YOUR_API_KEY]")
 
+query = { "dob": "1990-08-02" }
+
 try:
-    query = { "dob": "1990-08-02" }
     result = api.execute(query)
     print(result)
 finally:
