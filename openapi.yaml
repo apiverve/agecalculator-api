@@ -73,6 +73,18 @@ paths:
                     hours: 367
                     minutes: 22060
                     seconds: 1323623
+                  insights:
+                    generation: Millennial
+                    zodiacSign: Capricorn
+                    chineseZodiac: Horse
+                    birthstone: Garnet
+                    dayOfWeekBorn: Monday
+                    isLeapYearBirth: false
+                    milestones:
+                      canVoteUS: true
+                      canDrinkUS: true
+                      canRentCarUS: true
+                      seniorDiscount: false
         '401':
           description: Your request was not authorized, or your API Key was invalid
         '404':
