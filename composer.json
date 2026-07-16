@@ -1,0 +1,49 @@
+{
+    "name": "apiverve/agecalculator",
+    "description": "Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.",
+    "version": "1.2.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "APIVerve",
+            "email": "hello@apiverve.com",
+            "homepage": "https://apiverve.com"
+        }
+    ],
+    "keywords": [
+        "api",
+        "apiverve",
+        "agecalculator",
+        "age calculator",
+        "age calculator api",
+        "age calculator tool",
+        "age calculator software",
+        "age calculator service"
+    ],
+    "homepage": "https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=homepage",
+    "support": {
+        "email": "hello@apiverve.com",
+        "docs": "https://docs.apiverve.com/ref/agecalculator",
+        "source": "https://github.com/apiverve/agecalculator-API/tree/main/php"
+    },
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "APIVerve\\Agecalculator\\": "php/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "APIVerve\\Agecalculator\\Tests\\": "php/tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
