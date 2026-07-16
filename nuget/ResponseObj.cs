@@ -25,27 +25,57 @@ namespace APIVerve.API.AgeCalculator
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
         [JsonProperty("dob")]
-        public DateTimeOffset Dob { get; set; }
+        public DateTimeOffset? Dob { get; set; }
 
-        [JsonProperty("age_years")]
-        public long AgeYears { get; set; }
-
-        [JsonProperty("age_months")]
-        public long AgeMonths { get; set; }
-
-        [JsonProperty("age_weeks")]
-        public long AgeWeeks { get; set; }
-
-        [JsonProperty("age_days")]
-        public long AgeDays { get; set; }
+        [JsonProperty("age_breakdown")]
+        public AgeBreakdown AgeBreakdown { get; set; }
 
         [JsonProperty("age_words")]
         public AgeWords AgeWords { get; set; }
+
+        [JsonProperty("timezone")]
+        public string Timezone { get; set; }
+
+        [JsonProperty("locale")]
+        public string Locale { get; set; }
+
+        [JsonProperty("next_birthday")]
+        public AgeBreakdown NextBirthday { get; set; }
+
+        [JsonProperty("insights")]
+        public Insights Insights { get; set; }
+    }
+
+    public partial class AgeBreakdown
+    {
+        [JsonProperty("years")]
+        public long? Years { get; set; }
+
+        [JsonProperty("months")]
+        public long? Months { get; set; }
+
+        [JsonProperty("weeks")]
+        public long? Weeks { get; set; }
+
+        [JsonProperty("days")]
+        public long? Days { get; set; }
+
+        [JsonProperty("hours")]
+        public long? Hours { get; set; }
+
+        [JsonProperty("minutes")]
+        public long? Minutes { get; set; }
+
+        [JsonProperty("seconds")]
+        public long? Seconds { get; set; }
     }
 
     public partial class AgeWords
@@ -58,5 +88,59 @@ namespace APIVerve.API.AgeCalculator
 
         [JsonProperty("full")]
         public string Full { get; set; }
+
+        [JsonProperty("locale")]
+        public string Locale { get; set; }
+    }
+
+    public partial class Insights
+    {
+        [JsonProperty("generation")]
+        public string Generation { get; set; }
+
+        [JsonProperty("zodiacSign")]
+        public string ZodiacSign { get; set; }
+
+        [JsonProperty("chineseZodiac")]
+        public string ChineseZodiac { get; set; }
+
+        [JsonProperty("birthstone")]
+        public string Birthstone { get; set; }
+
+        [JsonProperty("dayOfWeekBorn")]
+        public string DayOfWeekBorn { get; set; }
+
+        [JsonProperty("isLeapYearBirth")]
+        public bool? IsLeapYearBirth { get; set; }
+
+        [JsonProperty("milestones")]
+        public Milestones Milestones { get; set; }
+    }
+
+    public partial class Milestones
+    {
+        [JsonProperty("canVoteUS")]
+        public bool? CanVoteUs { get; set; }
+
+        [JsonProperty("canDrinkUS")]
+        public bool? CanDrinkUs { get; set; }
+
+        [JsonProperty("canRentCarUS")]
+        public bool? CanRentCarUs { get; set; }
+
+        [JsonProperty("seniorDiscount")]
+        public bool? SeniorDiscount { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
