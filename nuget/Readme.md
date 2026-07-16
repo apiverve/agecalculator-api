@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.AgeCalculator;
 
 class Program
 {
@@ -60,8 +60,8 @@ class Program
         // Initialize the API client
         var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+        var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
         // Make the API call
@@ -116,7 +116,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.AgeCalculator;
 
 public class Example
 {
@@ -124,8 +124,8 @@ public class Example
     {
         var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+        var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -148,7 +148,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.AgeCalculator;
 
 public class Example
 {
@@ -156,8 +156,8 @@ public class Example
     {
         var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+        var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
         var response = apiClient.Execute(queryOptions);
@@ -185,7 +185,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.AgeCalculator;
 
 public class Example
 {
@@ -193,8 +193,8 @@ public class Example
     {
         var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+        var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
         try
@@ -237,7 +237,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.AgeCalculator;
 
 public class Example
 {
@@ -249,8 +249,8 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+        var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
         try
@@ -290,8 +290,8 @@ var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -316,8 +316,8 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -334,8 +334,8 @@ var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -346,8 +346,8 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
-    dob = "1990-08-02"
+var queryOptions = new AgeCalculatorQueryOptions {
+    Dob = "1990-08-02"
 };
 
 using (var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]"))
@@ -368,14 +368,44 @@ using (var apiClient = new AgeCalculatorAPIClient("[YOUR_API_KEY]"))
   "error": null,
   "data": {
     "dob": "1990-01-01",
-    "age_years": 35,
-    "age_months": 421,
-    "age_weeks": 1833,
-    "age_days": 12834,
+    "age_breakdown": {
+      "years": 35,
+      "months": 431,
+      "weeks": 1876,
+      "days": 13133,
+      "hours": 315208,
+      "minutes": 18912499,
+      "seconds": 1134749976
+    },
     "age_words": {
       "years": "thirty-five",
       "ordinal": "thirty-fifth",
-      "full": "thirty-five years old"
+      "full": "thirty-five years old",
+      "locale": "en-US"
+    },
+    "timezone": "America/Chicago",
+    "locale": "en-US",
+    "next_birthday": {
+      "months": 0,
+      "weeks": 2,
+      "days": 15,
+      "hours": 367,
+      "minutes": 22060,
+      "seconds": 1323623
+    },
+    "insights": {
+      "generation": "Millennial",
+      "zodiacSign": "Capricorn",
+      "chineseZodiac": "Horse",
+      "birthstone": "Garnet",
+      "dayOfWeekBorn": "Monday",
+      "isLeapYearBirth": false,
+      "milestones": {
+        "canVoteUS": true,
+        "canDrinkUS": true,
+        "canRentCarUS": true,
+        "seniorDiscount": false
+      }
     }
   }
 }
