@@ -191,11 +191,67 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Age Calculator API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "dob": "1990-01-01",
+    "age_breakdown": {
+      "years": 35,
+      "months": 431,
+      "weeks": 1876,
+      "days": 13133,
+      "hours": 315208,
+      "minutes": 18912499,
+      "seconds": 1134749976
+    },
+    "age_words": {
+      "years": "thirty-five",
+      "ordinal": "thirty-fifth",
+      "full": "thirty-five years old",
+      "locale": "en-US"
+    },
+    "timezone": "America/Chicago",
+    "locale": "en-US",
+    "next_birthday": {
+      "months": 0,
+      "weeks": 2,
+      "days": 15,
+      "hours": 367,
+      "minutes": 22060,
+      "seconds": 1323623
+    },
+    "insights": {
+      "generation": "Millennial",
+      "zodiacSign": "Capricorn",
+      "chineseZodiac": "Horse",
+      "birthstone": "Garnet",
+      "dayOfWeekBorn": "Monday",
+      "isLeapYearBirth": false,
+      "milestones": {
+        "canVoteUS": true,
+        "canDrinkUS": true,
+        "canRentCarUS": true,
+        "seniorDiscount": false
+      }
+    }
+  }
 }
 ```
 
