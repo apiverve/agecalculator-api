@@ -1,13 +1,12 @@
 Age Calculator API
 ============
 
-Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday.
 
-![Build Status](https://img.shields.io/badge/build-passing-green)
-![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
-![Prod Ready](https://img.shields.io/badge/production-ready-blue)
 
-This is a Python API Wrapper for the [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source=pypi&utm_medium=readme)
+[![PyPI version](https://img.shields.io/pypi/v/apiverve-agecalculator.svg)](https://pypi.org/project/apiverve-agecalculator/)
+
+This is a Python wrapper for the [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -29,8 +28,8 @@ pip3 install apiverve-agecalculator
 
 ## Configuration
 
-Before using the agecalculator API client, you have to setup your account and obtain your API Key.
-You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=readme)
+Before using the Age Calculator API client, you have to setup your account and obtain your API Key.
+You can get it by signing up at [https://apiverve.com](https://apiverve.com?utm_source=pypi&utm_medium=referral&utm_content=readme)
 
 ---
 
@@ -44,7 +43,10 @@ from apiverve_agecalculator.apiClient import AgecalculatorAPIClient
 # Initialize the client with your APIVerve API key
 api = AgecalculatorAPIClient("[YOUR_API_KEY]")
 
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 
 try:
     # Make the API call
@@ -60,7 +62,7 @@ except Exception as e:
 
 ## Usage
 
-The Age Calculator API documentation is found here: [https://docs.apiverve.com/ref/agecalculator](https://docs.apiverve.com/ref/agecalculator?utm_source=pypi&utm_medium=readme).
+The Age Calculator API documentation is found here: [https://docs.apiverve.com/ref/agecalculator](https://docs.apiverve.com/ref/agecalculator?utm_source=pypi&utm_medium=referral&utm_content=readme).
 You can find parameters, example responses, and status codes documented here.
 
 ### Setup
@@ -82,7 +84,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 ```
 
 ###### Simple Request
@@ -103,14 +108,44 @@ print(result)
   "error": null,
   "data": {
     "dob": "1990-01-01",
-    "age_years": 35,
-    "age_months": 421,
-    "age_weeks": 1833,
-    "age_days": 12834,
+    "age_breakdown": {
+      "years": 35,
+      "months": 431,
+      "weeks": 1876,
+      "days": 13133,
+      "hours": 315208,
+      "minutes": 18912499,
+      "seconds": 1134749976
+    },
     "age_words": {
       "years": "thirty-five",
       "ordinal": "thirty-fifth",
-      "full": "thirty-five years old"
+      "full": "thirty-five years old",
+      "locale": "en-US"
+    },
+    "timezone": "America/Chicago",
+    "locale": "en-US",
+    "next_birthday": {
+      "months": 0,
+      "weeks": 2,
+      "days": 15,
+      "hours": 367,
+      "minutes": 22060,
+      "seconds": 1323623
+    },
+    "insights": {
+      "generation": "Millennial",
+      "zodiacSign": "Capricorn",
+      "chineseZodiac": "Horse",
+      "birthstone": "Garnet",
+      "dayOfWeekBorn": "Monday",
+      "isLeapYearBirth": false,
+      "milestones": {
+        "canVoteUS": true,
+        "canDrinkUS": true,
+        "canRentCarUS": true,
+        "seniorDiscount": false
+      }
     }
   }
 }
@@ -129,7 +164,10 @@ from apiverve_agecalculator.apiClient import AgecalculatorAPIClient, Agecalculat
 
 api = AgecalculatorAPIClient("[YOUR_API_KEY]")
 
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 
 try:
     result = api.execute(query)
@@ -150,7 +188,10 @@ from apiverve_agecalculator.apiClient import AgecalculatorAPIClient, Agecalculat
 
 api = AgecalculatorAPIClient("[YOUR_API_KEY]")
 
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 
 try:
     result = api.execute(query)
@@ -184,7 +225,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_agecalculator.apiClient import AgecalculatorAPIClient, AgecalculatorAPIClientError
 
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 
 # Using context manager ensures proper cleanup
 with AgecalculatorAPIClient("[YOUR_API_KEY]") as api:
@@ -210,7 +254,10 @@ from apiverve_agecalculator.apiClient import AgecalculatorAPIClient
 # Enable debug mode
 api = AgecalculatorAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -225,7 +272,10 @@ from apiverve_agecalculator.apiClient import AgecalculatorAPIClient
 
 api = AgecalculatorAPIClient("[YOUR_API_KEY]")
 
-query = { "dob": "1990-08-02" }
+query = {
+    "dob": "1990-08-02",
+    "timezone": "America/Chicago"
+}
 
 try:
     result = api.execute(query)
@@ -239,7 +289,7 @@ finally:
 
 ## Customer Support
 
-Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=readme).
+Need any assistance? [Get in touch with Customer Support](https://apiverve.com/contact?utm_source=pypi&utm_medium=referral&utm_content=readme).
 
 ---
 
@@ -250,12 +300,12 @@ Stay up to date by following [@apiverveHQ](https://twitter.com/apiverveHQ) on Tw
 
 ## Legal
 
-All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=readme) and all legal documents and agreements.
+All usage of the APIVerve website, API, and services is subject to the [APIVerve Terms of Service](https://apiverve.com/terms?utm_source=pypi&utm_medium=referral&utm_content=readme) and all legal documents and agreements.
 
 ---
 
 ## License
-Licensed under the The MIT License (MIT)
+Licensed under the MIT License (MIT)
 
 Copyright (&copy;) 2026 APIVerve, and EvlarSoft LLC
 

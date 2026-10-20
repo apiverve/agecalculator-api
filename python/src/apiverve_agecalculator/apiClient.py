@@ -1,6 +1,6 @@
 import re
-from typing import Dict, Optional, Any
-from dataclasses import dataclass, List
+from typing import Dict, Optional, Any, List
+from dataclasses import dataclass
 import requests
 
 
@@ -24,7 +24,8 @@ class ValidationError(AgecalculatorAPIClientError):
 class AgecalculatorAPIClient:
     # Validation rules for parameters (generated from schema)
     VALIDATION_RULES = {
-        "dob": {"type": "string", "required": True, "format": "date"}
+        "dob": {"type": "string", "required": True, "format": "date"},
+        "timezone": {"type": "string", "required": False, "format": "timezone", "default": "America/Chicago"}
     }
 
     # Format validation patterns
