@@ -30,7 +30,7 @@ class agecalculatorWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/agecalculator';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"dob":{"type":"string","required":true,"format":"date"}};
+        this.validationRules = {"dob":{"type":"string","required":true,"format":"date"},"timezone":{"type":"string","required":false,"format":"timezone","default":"America/Chicago"}};
     }
 
     /**

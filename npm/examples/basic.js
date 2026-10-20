@@ -15,7 +15,8 @@ const api = new agecalculatorAPI({
 
 // Example query
 var query = {
-  dob: "1990-08-02"
+  dob: "1990-08-02",
+  timezone: "America/Chicago"
 };
 
 // Make the API request using callback
