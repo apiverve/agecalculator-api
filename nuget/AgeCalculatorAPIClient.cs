@@ -67,7 +67,8 @@ namespace APIVerve.API.AgeCalculator
         /// <summary>Validation rules for parameters</summary>
         private static readonly Dictionary<string, ValidationRule> _validationRules = new Dictionary<string, ValidationRule>
         {
-            { "dob", new ValidationRule { Type = "string", Required = true, Format = "date" } }
+            { "dob", new ValidationRule { Type = "string", Required = true, Format = "date" } },
+            { "timezone", new ValidationRule { Type = "string", Required = false, Format = "timezone" } }
         };
 
         /// <summary>Format validation patterns</summary>

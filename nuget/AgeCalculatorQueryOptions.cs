@@ -15,5 +15,11 @@ namespace APIVerve.API.AgeCalculator
         /// </summary>
         [JsonProperty("dob")]
         public string Dob { get; set; }
+
+        /// <summary>
+        /// IANA timezone used to interpret the date of birth and to determine "today" when computing the age
+        /// </summary>
+        [JsonProperty("timezone")]
+        public string Timezone { get; set; }
     }
 }
