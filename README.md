@@ -1,13 +1,13 @@
-# [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday.
 
 The Age Calculator API provides a simple, reliable way to integrate age calculator functionality into your applications. Built for developers who need production-ready age calculator capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -31,7 +31,8 @@ The Age Calculator API provides a simple, reliable way to integrate age calculat
 async function callAgeCalculatorAPI() {
     try {
         const params = new URLSearchParams({
-            dob: '1990-08-02'
+            dob: '1990-08-02',
+            timezone: 'America/Chicago'
         });
 
         const response = await fetch(`https://api.apiverve.com/v1/agecalculator?${params}`, {
@@ -54,7 +55,7 @@ callAgeCalculatorAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/agecalculator?dob=1990-08-02" \
+curl -X GET "https://api.apiverve.com/v1/agecalculator?dob=1990-08-02&timezone=America%2FChicago" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -161,7 +162,7 @@ go get github.com/apiverve/agecalculator-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/agecalculator](https://docs.apiverve.com/ref/agecalculator)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -259,7 +260,7 @@ A real response from the Age Calculator API:
 
 ## Support & Community
 
-- 🏠 **API Home**: [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [Age Calculator API](https://apiverve.com/marketplace/agecalculator?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

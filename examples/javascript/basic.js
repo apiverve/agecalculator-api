@@ -15,7 +15,8 @@ async function callAgeCalculatorAPI() {
   try {
     // Query parameters
     const params &#x3D; new URLSearchParams({
-            dob: &#x27;1990-08-02&#x27;
+            dob: &#x27;1990-08-02&#x27;,
+            timezone: &#x27;America/Chicago&#x27;
         });
 
     const response = await fetch(`${API_URL}?${params}`, {

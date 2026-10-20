@@ -15,6 +15,7 @@ public class BasicExample {
             // Query parameters
             Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
         parameters.put(&quot;dob&quot;, &quot;1990-08-02&quot;);
+        parameters.put(&quot;timezone&quot;, &quot;America/Chicago&quot;);
 
             // Execute the API request
             APIResponse response = client.execute(parameters);

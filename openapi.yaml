@@ -2,8 +2,9 @@ openapi: 3.0.4
 info:
   title: Age Calculator
   description: >-
-    Age Calculator is a simple tool for calculating age from the date of birth.
-    It returns the calculated age based on the date of birth provided.
+    Age Calculator converts a date of birth into exact age broken down by years,
+    months, weeks, days, hours, minutes, and seconds. It also provides the age
+    in written words and a countdown to the next birthday.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -18,7 +19,7 @@ servers:
 paths:
   /v1/agecalculator:
     get:
-      summary: Calculate Age from Date of Birth
+      summary: Age Calculator
       description: Calculate age based on the date of birth provided
       operationId: agecalculator
       parameters:
@@ -29,6 +30,15 @@ paths:
           required: true
           description: 'The date of birth to calculate the age from (format: YYYY-MM-DD)'
           example: '1990-08-02'
+        - name: timezone
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            IANA timezone used to interpret the date of birth and to determine
+            "today" when computing the age
+          example: America/Chicago
       responses:
         '200':
           description: Successful Response

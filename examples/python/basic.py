@@ -18,7 +18,7 @@ def call_agecalculator_api():
     """
     try:
         # Query parameters
-        params &#x3D; {&#x27;dob&#x27;: &#x27;1990-08-02&#x27;}
+        params &#x3D; {&#x27;dob&#x27;: &#x27;1990-08-02&#x27;, &#x27;timezone&#x27;: &#x27;America/Chicago&#x27;}
 
         headers = {
             'x-api-key': API_KEY
