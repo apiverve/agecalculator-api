@@ -1,7 +1,7 @@
 {
     "name": "apiverve/agecalculator",
-    "description": "Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.",
-    "version": "1.2.0",
+    "description": "Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday.",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,13 +15,13 @@
         "api",
         "apiverve",
         "agecalculator",
-        "age calculator",
         "age calculator api",
-        "age calculator tool",
-        "age calculator software",
-        "age calculator service"
+        "calculate age from date of birth",
+        "dob to age",
+        "calculate exact age",
+        "age in years months days"
     ],
-    "homepage": "https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/agecalculator",
