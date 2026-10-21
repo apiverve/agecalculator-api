@@ -15,11 +15,11 @@ use APIVerve\Agecalculator\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['dob' => '1990-08-02']);
+ * $response = $client->execute(['dob' => '1990-08-02', 'timezone' => 'America/Chicago']);
  * print_r($response);
  * ```
  *
- * @see https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=readme
+ * @see https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=referral&utm_content=readme
  */
 class Client
 {
@@ -34,7 +34,8 @@ class Client
      * Validation rules for parameters
      */
     private const VALIDATION_RULES = [
-        'dob' => ['type' => 'string', 'required' => true, 'format' => 'date']
+        'dob' => ['type' => 'string', 'required' => true, 'format' => 'date'],
+        'timezone' => ['type' => 'string', 'required' => false, 'format' => 'timezone']
     ];
 
     /**

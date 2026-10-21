@@ -1,6 +1,6 @@
 # Age Calculator API - PHP Package
 
-Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
+Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday.
 
 ## Installation
 
@@ -27,7 +27,10 @@ use APIVerve\Agecalculator\Client;
 $client = new Client('YOUR_API_KEY');
 
 // Make a request
-$response = $client->execute(['dob' => '1990-08-02']);
+$response = $client->execute([
+    'dob' => '1990-08-02',
+    'timezone' => 'America/Chicago'
+]);
 
 // Print the response
 print_r($response);
@@ -42,7 +45,7 @@ use APIVerve\Agecalculator\Exceptions\APIException;
 use APIVerve\Agecalculator\Exceptions\ValidationException;
 
 try {
-    $response = $client->execute(['dob' => '1990-08-02']);
+    $response = $client->execute(['dob' => '1990-08-02', 'timezone' => 'America/Chicago']);
     print_r($response['data']);
 } catch (ValidationException $e) {
     echo "Validation error: " . implode(', ', $e->getErrors());
@@ -120,11 +123,11 @@ $client = new Client(
 
 ## Documentation
 
-For more information, visit the [API Documentation](https://docs.apiverve.com/ref/agecalculator?utm_source=packagist&utm_medium=readme).
+For more information, visit the [API Documentation](https://docs.apiverve.com/ref/agecalculator?utm_source=packagist&utm_medium=referral&utm_content=readme).
 
 ## Support
 
-- Website: [https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=readme](https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=readme)
+- Website: [https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=referral&utm_content=readme](https://apiverve.com/marketplace/agecalculator?utm_source=php&utm_medium=referral&utm_content=readme)
 - Email: hello@apiverve.com
 
 ## License
