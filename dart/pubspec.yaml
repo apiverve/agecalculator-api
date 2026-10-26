@@ -1,7 +1,7 @@
 name: apiverve_agecalculator
-description: Age Calculator is a simple tool for calculating age from the date of birth. It returns the calculated age based on the date of birth provided.
-version: 1.1.14
-homepage: https://apiverve.com/marketplace/agecalculator?utm_source=dart&utm_medium=homepage
+description: "Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday."
+version: 1.2.3
+homepage: https://apiverve.com/marketplace/agecalculator?utm_source=dart&utm_medium=referral&utm_content=homepage
 repository: https://github.com/apiverve/agecalculator-api/tree/main/dart
 
 environment:

@@ -46,10 +46,11 @@ final _formatPatterns = {
 
 /// Age Calculator API client.
 ///
-/// For more information, visit: https://apiverve.com/marketplace/agecalculator?utm_source=dart&utm_medium=readme
+/// For more information, visit: https://apiverve.com/marketplace/agecalculator?utm_source=dart&utm_medium=referral&utm_content=readme
 ///
 /// Parameters:
 /// * [dob] (required) - The date of birth to calculate the age from (format: YYYY-MM-DD) [format: date]
+/// * [timezone] - IANA timezone used to interpret the date of birth and to determine "today" when computing the age [format: timezone]
 class AgecalculatorClient {
   final String apiKey;
   final String baseUrl;
@@ -58,6 +59,7 @@ class AgecalculatorClient {
   /// Validation rules for parameters.
   static final Map<String, ValidationRule> _validationRules = <String, ValidationRule>{
     'dob': ValidationRule(type: 'string', required: true, format: 'date'),
+    'timezone': ValidationRule(type: 'string', required: false, format: 'timezone'),
   };
 
   AgecalculatorClient(this.apiKey, {
