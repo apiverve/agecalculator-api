@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/agecalculator",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday.",
   "main": "index.js",
   "types": "index.d.ts",
