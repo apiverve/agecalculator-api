@@ -1,6 +1,6 @@
 name: apiverve_agecalculator
 description: "Age Calculator converts a date of birth into exact age broken down by years, months, weeks, days, hours, minutes, and seconds. It also provides the age in written words and a countdown to the next birthday."
-version: 1.2.3
+version: 1.2.4
 homepage: https://apiverve.com/marketplace/agecalculator?utm_source=dart&utm_medium=referral&utm_content=homepage
 repository: https://github.com/apiverve/agecalculator-api/tree/main/dart
 
